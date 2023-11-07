@@ -12,18 +12,17 @@ def pi():  # application's code here
     y_axis = []
     for items in range(total_points):
         x = round(random(),5) #new random number
-        x_axis.append(x) #adds to list x_axis
-    for items in range(total_points):
-        y = round(random(),2) #new random number
-        y_axis.append(y) #adds to list y_axis
+        y = round(random(), 5)
+
+        x_axis.append(x) #adds to list
+        y_axis.append(y)
 
 #calculates pie
     points_inside = 0
     for x,y in zip(x_axis,y_axis):
-        if (x * x) + (y * y) <= 0.25:  # number of points inside the circle
-             points_inside += 0
-        else:
-            points_inside += 1
+        if (x * x) + (y * y) <= 1:  # number of points inside the circle
+             points_inside += 1
+
     estimated_pi = 4 * (points_inside/total_points)
     return render_template("display.html", pi = estimated_pi)
 
